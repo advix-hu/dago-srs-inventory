@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SRSInventory.MainPage"
+             xmlns:vm="clr-namespace:SRSInventory.Pages.MainPage"
+             x:DataType="vm:MainPageViewModel"
+             xmlns:cv="clr-namespace:SRSInventory.ContentViews"
+             xmlns:if="clr-namespace:SRSInventory.Interfaces"
+             xmlns:converters="clr-namespace:SRSInventory.Converters"
+             Title="PRODUCTS"
+             >
+    <ContentPage.Resources>
+        <converters:NullToBoolConverter x:Key="NullToBoolConverter"/>
+    </ContentPage.Resources>
+
+    <Grid x:Name="MainGrid" Margin="10" RowDefinitions="Auto,*">
+        <Grid RowDefinitions="Auto,Auto,Auto" BackgroundColor="#11120099">            
+            <Border Grid.Row="0" Padding="10" Stroke="CadetBlue" StrokeShape="RoundRectangle 4" Margin="5">
+                <Grid RowDefinitions="Auto,Auto">
+                    <Grid Grid.Row="0" ColumnDefinitions="Auto,*">
+                        <Label Grid.Column="0" Text="Name:" Margin="0,10,10,10" VerticalOptions="Center" MinimumWidthRequest="100"/>
+                        <Entry Grid.Column="1" Text="{Binding NameFilter, Mode=TwoWay}" Margin="5"/>
+                    </Grid>
+                    <Grid Grid.Row="1" ColumnDefinitions="Auto,*">
+                        <Label Grid.Column="0" Text="Barcode:" Margin="0,10,10,10" VerticalOptions="Center" MinimumWidthRequest="100"/>
+                        <Entry Grid.Column="1" Text="{Binding BarcodeFilter, Mode=TwoWay}" Margin="5"/>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="1" Padding="10" Stroke="CadetBlue" StrokeShape="RoundRectangle 4" Margin="5">
+                <Grid ColumnDefinitions="Auto,Auto,Auto,Auto" Margin="0,10,0,10">
+                    <Label Grid.Column="0" Text="Filtered:"/>
+                    <Label Grid.Column="1" Text="{Binding Products.FilteredCount}}" FontAttributes="Bold" Margin="5,0,0,0"/>
+                    <Label Grid.Column="2" Text=" / " Margin="5,0,5,0"/>
+                    <Label Grid.Column="3" Text="{Binding Products.Count}}"/>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="2" Padding="10" Stroke="CadetBlue" StrokeShape="RoundRectangle 4" Margin="5">
+                <Grid ColumnDefinitions="Auto,Auto,Auto,*">
+                    <Button Grid.Column="0" Text="ADD" FontSize="20" Command="{Binding EditCommand}" Margin="0,5,5,5"/>
+                    <Button Grid.Column="1" Text="EDIT" FontSize="20" Command="{Binding EditCommand}" CommandParameter="{Binding SelectedProduct}" IsEnabled="{Binding SelectedProduct, Converter={StaticResource NullToBoolConverter}}" Margin="5"/>
+                    <Button Grid.Column="2" Text="DEL" FontSize="20"  Command="{Binding DeleteCommand}" CommandParameter="{Binding SelectedProduct}" IsEnabled="{Binding SelectedProduct, Converter={StaticResource NullToBoolConverter}}" Margin="5"/>
+                </Grid>
+            </Border>
+
+            
+        </Grid>
+
+        <Grid Grid.Row="3" Margin="0,10,0,0" Padding="10">
+            <CollectionView ItemsSource="{Binding Products.View}" SelectionMode="Single" SelectedItem="{Binding SelectedProduct}" BackgroundColor="#11DD0000" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="if:IProduct">
+                        <SwipeView Padding="10">
+                            <SwipeView.RightItems>
+                                <SwipeItems Mode="Execute">
+                                    <SwipeItem Text="Delete" BackgroundColor="Red" Command="{Binding Source={RelativeSource AncestorType={x:Type CollectionView}}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding .}" />
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <SwipeView.LeftItems>
+                                <SwipeItems Mode="Execute">
+                                    <SwipeItem Text="Edit" BackgroundColor="Blue" Command="{Binding Source={RelativeSource AncestorType={x:Type CollectionView}}, Path=BindingContext.EditCommand}" CommandParameter="{Binding .}" />
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
+
+                            <cv:ProductView Product="{Binding .}" Margin="10" />
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </Grid>
+    </Grid>
+
+</ContentPage>

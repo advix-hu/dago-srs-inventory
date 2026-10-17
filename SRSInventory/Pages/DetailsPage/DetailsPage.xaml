@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SRSInventory.Pages.DetailsPage.DetailsPage"
+             xmlns:vm="clr-namespace:SRSInventory.Pages.DetailsPage"
+             x:DataType="vm:DetailsPageViewModel"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:converters="clr-namespace:SRSInventory.Converters"
+             Title="{Binding Title}">
+    
+    <VerticalStackLayout x:Name="Root">
+        <Border Stroke="#3FDD0000" StrokeShape="RoundRectangle 4" BackgroundColor="#07DD0000" Margin="5">
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto" Margin="10">
+                <Grid Grid.Row="0" ColumnDefinitions="Auto,*">
+                    <Label Grid.Column="0" Text="Name:" VerticalOptions="Center" MinimumWidthRequest="100" x:Name="NameEntry"/>
+                    <Entry Grid.Column="1" Keyboard="Text" HorizontalTextAlignment="Start" HorizontalOptions="Fill" VerticalTextAlignment="Center" Text="{Binding Product.Name, Mode=TwoWay}" Margin="5" >
+                        <Entry.Behaviors>
+                            <toolkit:EventToCommandBehavior EventName="TextChanged" BindingContext="{Binding Source={x:Reference Root}, Path=BindingContext}" Command="{Binding ValidateCommand}" />
+                        </Entry.Behaviors>
+                    </Entry>
+                </Grid>
+                <Grid  Grid.Row="1" ColumnDefinitions="Auto,*">
+                    <Label Grid.Column="0" Text="Barcode:" VerticalOptions="Center" MinimumWidthRequest="100"/>
+                    <Entry Grid.Column="1" Keyboard="Numeric" HorizontalTextAlignment="Start" HorizontalOptions="Fill" VerticalTextAlignment="Center" Text="{Binding Product.Barcode, Mode=TwoWay}" Margin="5">
+                        <Entry.Behaviors>
+                            <toolkit:EventToCommandBehavior EventName="TextChanged" BindingContext="{Binding Source={x:Reference Root}, Path=BindingContext}" Command="{Binding ValidateCommand}" />
+                        </Entry.Behaviors>
+                    </Entry>
+                </Grid>
+                <Grid  Grid.Row="2" ColumnDefinitions="Auto,*">
+                    <Label Grid.Column="0" Text="Price:" VerticalOptions="Center" MinimumWidthRequest="100"/>
+                    <Entry Grid.Column="1" Keyboard="Numeric" HorizontalTextAlignment="Start" HorizontalOptions="Fill" VerticalTextAlignment="Center" Text="{Binding Product.Price, Mode=TwoWay}" Margin="5">
+                        <Entry.Behaviors>
+                            <toolkit:EventToCommandBehavior EventName="TextChanged" BindingContext="{Binding Source={x:Reference Root}, Path=BindingContext}" Command="{Binding ValidateCommand}" />
+                        </Entry.Behaviors>
+                    </Entry>
+                </Grid>
+                <Grid  Grid.Row="3" ColumnDefinitions="Auto,*">
+                    <Label Grid.Column="0" Text="Quantity:" VerticalOptions="Center" MinimumWidthRequest="100"/>
+                    <Entry Grid.Column="1" Keyboard="Numeric" HorizontalTextAlignment="Start" HorizontalOptions="Fill" VerticalTextAlignment="Center" Text="{Binding Product.Quantity, Mode=TwoWay}" Margin="5">
+                        <Entry.Behaviors>
+                            <toolkit:EventToCommandBehavior EventName="TextChanged" BindingContext="{Binding Source={x:Reference Root}, Path=BindingContext}" Command="{Binding ValidateCommand}" />
+                        </Entry.Behaviors>
+                    </Entry>
+                </Grid>
+            </Grid>
+        </Border>
+        <Grid ColumnDefinitions="*,*">
+            <Button Grid.Column="0" Text="Cancel" Command="{Binding CancelCommand}" Margin="10"/>
+            <Button Grid.Column="1" Text="OK" Command="{Binding OkCommand}" Margin="10" IsEnabled="{Binding CanEdit}"/>
+        </Grid>
+    </VerticalStackLayout>
+    
+</ContentPage>

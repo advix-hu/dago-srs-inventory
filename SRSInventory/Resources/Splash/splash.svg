@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect x="56" y="56" width="400" height="400" rx="48"
+        fill="url(#grad)"/>
+
+  <!-- Box icon -->
+  <g transform="translate(125 120)">
+    <path d="M130 0 L260 65 L130 130 L0 65 Z"
+          fill="#FFFFFF"
+          opacity="0.95"/>
+
+    <path d="M0 65 L130 130 L130 260 L0 195 Z"
+          fill="#E5E7EB"/>
+
+    <path d="M260 65 L130 130 L130 260 L260 195 Z"
+          fill="#F8FAFC"/>
+  </g>
+
+  <!-- SRS text -->
+  <text x="256"
+        y="435"
+        font-family="Segoe UI, Arial, sans-serif"
+        font-size="64"
+        font-weight="700"
+        text-anchor="middle"
+        fill="#FFFFFF">
+    SRS
+  </text>
+</svg>
