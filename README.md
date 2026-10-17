@@ -30,6 +30,6 @@ A Feladott Feladat Fölöttébb Furfangos volt (F^4) :)
 Viszont minden igyekezetemmel azon voltam, hogy elfogadható eredményt nyújtsak... ;)
 
 Izgatottam várom pozitív / negatív visszajelzésüket,
-tisztelettel,
-Dankovics József
+tisztelettel,\
+Dankovics József\
 <https://dago.hu>
