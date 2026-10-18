@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace SRSInventory.Interfaces
+﻿namespace SRSInventory.Interfaces
 {
     public interface IProduct : ICloneable
     {

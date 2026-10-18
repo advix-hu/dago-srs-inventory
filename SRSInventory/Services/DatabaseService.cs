@@ -96,18 +96,17 @@ namespace SRSInventory.Services
             try
             {
                 if (!_initialized)
-                {
-                    var path = Path.Combine(FileSystem.AppDataDirectory, DatabaseConsts.DatabaseFilename);
-                    if (!File.Exists(path))
+                {                    
+                    if (!File.Exists(Consts.DatabaseConsts.DatabasePath))
                     {
                         using var source = await FileSystem.OpenAppPackageFileAsync(DatabaseConsts.DatabaseFilename);
 
-                        using var target = File.Create(path);
+                        using var target = File.Create(Consts.DatabaseConsts.DatabasePath);
 
                         await source.CopyToAsync(target);
                     }
 
-                    _connection = new SQLiteAsyncConnection(path, DatabaseConsts.Flags);
+                    _connection = new SQLiteAsyncConnection(Consts.DatabaseConsts.DatabasePath, DatabaseConsts.Flags);
                     _initialized = true;
                 }
                 return new Result<ResultStates, Exception>(ResultStates.Ok, null);

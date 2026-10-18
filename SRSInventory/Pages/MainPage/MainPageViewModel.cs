@@ -29,19 +29,6 @@ namespace SRSInventory.Pages.MainPage
             _databaseService = databaseService;
         }
 
-        private void CreateDummyData()
-        {
-            Task.Run(async () =>
-            {
-                foreach (var line in File.ReadLines("c:\\Users\\mail\\Downloads\\products_5000.csv"))
-                {
-                    var s = line.Split(";");
-                    var p = new Product() { Name = s[0], Barcode = s[1], Price = int.Parse(s[2]), Quantity = int.Parse(s[3]) };
-                    await _databaseService.AddProduct(p);
-                }
-            }).Wait();
-        }
-
         public void OnAppearing()
         {
             Task.Run(async () =>
