@@ -52,15 +52,15 @@
             <CollectionView ItemsSource="{Binding Products.View}" SelectionMode="Single" SelectedItem="{Binding SelectedProduct}" BackgroundColor="#11DD0000" >
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="if:IProduct">
-                        <SwipeView Padding="10">
+                        <SwipeView Padding="0">
                             <SwipeView.RightItems>
                                 <SwipeItems Mode="Execute">
-                                    <SwipeItem Text="Delete" BackgroundColor="Red" Command="{Binding Source={RelativeSource AncestorType={x:Type CollectionView}}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding .}" />
+                                    <SwipeItem Text="Delete" BackgroundColor="#7FFF0000" Command="{Binding Source={RelativeSource AncestorType={x:Type CollectionView}}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding .}"/>
                                 </SwipeItems>
                             </SwipeView.RightItems>
                             <SwipeView.LeftItems>
                                 <SwipeItems Mode="Execute">
-                                    <SwipeItem Text="Edit" BackgroundColor="Blue" Command="{Binding Source={RelativeSource AncestorType={x:Type CollectionView}}, Path=BindingContext.EditCommand}" CommandParameter="{Binding .}" />
+                                    <SwipeItem Text="Edit" BackgroundColor="#7F0000FF" Command="{Binding Source={RelativeSource AncestorType={x:Type CollectionView}}, Path=BindingContext.EditCommand}" CommandParameter="{Binding .}" />
                                 </SwipeItems>
                             </SwipeView.LeftItems>
 
