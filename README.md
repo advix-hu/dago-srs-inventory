@@ -1,8 +1,8 @@
+
 # Welcome to SRSInventory!
 I'm sorry, but I will continue in hungarian... :)
 ---
 Ez a repó azért készült, hogy valamilyen szinten bemutathassam szoftverfejlesztői képességeimet - illetve mert kérték :)
-
 
 # Technikai döntések
 Igyekeztem az **OOP**, **SOLID** és nem utolsó sorban az **MVVM** mintákat követni, illetve felhasználni a megfelelő nuget csomagokat azért, hogy a feladat megoldása minnél gyorsabb és jobb legyen.
@@ -17,7 +17,6 @@ Az adatbázis-kezelést lehetne EntityFramework-re bízni (pl CodeFirst), de miv
 
 "Sajnos" 2026-ban már az AI-é a főszerep, én nem használtam fel kódok generálására, review-ra, csak ha elakadtam néha feltettem néhány kérdést, amire nem mindig kaptam kiválló minőségű választ, de azért a segítségemre volt, ezt nem tagadom. ;)
 
-
 ## További fejlesztési lehetőségek
 A sok elemű collection kezelését egy saját (vagy már meglévő nuget csomag készleteként) ObservableRangeCollection implementációval oldanám meg, ahol az OnCollectionChanged event nem hívódik meg minden egyes Add-ra (pl. AddRange).
 
@@ -26,8 +25,8 @@ Korábbi munkahelyeimen nagy hangsújt fektettem a UX-be, itt is megpróbáltam 
 Unit tesztek nem készültek, mert nem volt a feladat része, de természetesen az is fontos része a szoftverfejlesztésnek, így azt is nagyon fontosnak tartom.
 
 ## Összegzés
-A Feladott Feladat Fölöttébb Furfangos volt (F^4) :)
-Viszont minden igyekezetemmel azon voltam, hogy elfogadható eredményt nyújtsak... ;)
+A feladott feladat érdekes volt, megfelelően nehéz, de megoldható.
+Minden igyekezetemmel azon voltam, hogy elfogadható eredményt nyújtsak, remélem sikerült.
 
 Izgatottam várom pozitív / negatív visszajelzésüket,
 tisztelettel,\
