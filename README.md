@@ -1,5 +1,6 @@
 
 
+
 # Welcome to SRSInventory!
 I'm sorry, but I will continue in hungarian... :)
 ---
@@ -8,7 +9,7 @@ Ez a repó azért készült, hogy valamilyen szinten bemutathassam szoftverfejle
 # Technikai döntések
 Igyekeztem az **OOP**, **SOLID** és nem utolsó sorban az **MVVM** mintákat követni, illetve felhasználni a megfelelő nuget csomagokat azért, hogy a feladat megoldása minnél gyorsabb és jobb legyen.
 
-MAUI fejlesztésben munkahelyi szintem nem sok tapasztalatom van, de amit sikerült elsajátítanom hobbi szinten, azokat a saját projectekben sikeresen tudtam hasznosítani.
+MAUI fejlesztésben munkahelyi szinten nem sok tapasztalatom van, de amit sikerült elsajátítanom hobbi szinten, azokat a saját projectekben sikeresen tudtam hasznosítani.
 
 ## Megoldások, részfeladatok
 
